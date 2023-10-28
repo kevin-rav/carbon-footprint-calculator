@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="container"> <!-- Place everything inside a single container -->
+        <header>
+            <h1>Carbon Footprint Calculator</h1>
+        </header>
+
+        <nav>
+            <a href="homepage.html">Home</a> |
+            <a href="calculator.html">Calculator</a> |
+            <a href="leaderboard.html">Leaderboard</a>
+        </nav>
+
+        <form onsubmit="handleSubmit(event)">
+            <label for="username">Name:</label>
+            <input type="text" id="username" required>
+            
+            <label for="milesDriven">Miles Driven:</label>
+            <input type="number" id="milesDriven" required>
+
+            <label for="mpg">Car's Miles Per Gallon:</label>
+            <input type="number" id="mpg" required>
+
+            <label for="naturalGas">Household Natural Gas Usage (in ccf):</label>
+            <input type="number" id="naturalGas" required>
+
+            <label for="electricityUsed">Daily Electricity Usage (in kWh):</label>
+            <input type="number" id="electricityUsed" required>
+
+            <label for="waterUsed">Water Used (in gallons):</label>
+            <input type="number" id="waterUsed" required>
+
+            <button type="submit">Calculate</button>
+        </form>
+        <div id="result"></div>
+
+        <footer>
+            <p>© 2023 Carbon Footprint Calculator. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

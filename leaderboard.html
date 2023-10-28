@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body onload="displayLeaderboardData()">
+    <div class="container">
+        <h1>Leaderboard</h1>
+        <nav>
+            <a href="homepage.html">Home</a> |
+            <a href="calculator.html">Calculator</a> |
+            <a href="leaderboard.html">Leaderboard</a>
+        </nav>
+        <div class="tabs">
+            <button id="dailyBtn" onclick="showDaily()">Daily</button>
+            <button id="monthlyBtn" onclick="showMonthly()">Monthly</button>
+        </div>
+        <div id="dailyLeaderboard" class="leaderboard">
+            <h2>Daily Leaders</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Username</th>
+                        <th>Emission (kg)</th>
+                    </tr>
+                </thead>
+                <tbody id="dailyData">
+                    <!-- Daily leaderboard data will be populated here -->
+                </tbody>
+            </table>
+        </div>
+        <div id="monthlyLeaderboard" class="leaderboard">
+            <h2>Monthly Leaders</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Username</th>
+                        <th>Emission (kg)</th>
+                    </tr>
+                </thead>
+                <tbody id="monthlyData">
+                    <!-- Monthly leaderboard data will be populated here -->
+                </tbody>
+            </table>
+        </div>
+        <a href="homepage.html">Back to Home</a>
+    </div>
+</body>
+</html>

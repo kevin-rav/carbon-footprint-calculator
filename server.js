@@ -34,18 +34,25 @@ db.run("CREATE TABLE IF NOT EXISTS leaderboard (username TEXT, emission FLOAT)")
 app.post('/submit-data', (req, res) => {
     const { username, emission } = req.body;
     const stmt = db.prepare("INSERT INTO leaderboard (username, emission) VALUES (?, ?)");
-    stmt.run(username, emission);
+    stmt.run(username, emission, function(err) {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        res.send("Data submitted!");
+    });
     stmt.finalize();
-    res.send("Data submitted!");
 });
 
 // Retrieve leaderboard data
 app.get('/get-leaderboard', (req, res) => {
-    db.all("SELECT * FROM leaderboard ORDER BY emission ASC", [], (err, rows) => {
+    db.all("SELECT * FROM leaderboard ORDER BY emission DESC", [], (err, rows) => { // Changed to DESC for higher emissions first
         if (err) {
-            throw err;
+            return res.status(500).json({ error: err.message });
         }
-        res.json(rows);
+        res.json({
+            "message": "success",
+            "data": rows
+        });
     });
 });
 
